@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>什么是乐乐星球</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('111.jpg'); /* 设置背景图片 */
+      background-size: cover; /* 背景图自适应覆盖 */
+      background-position: center; /* 背景图居中 */
+      background-attachment: fixed; /* 背景图固定 */
+      overflow: hidden; /* 隐藏滚动条 */
+    }
+
+    /* 用于制作浮动文本的动画 */
+    @keyframes floatText {
+      0% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(100px, 50px);
+      }
+      50% {
+        transform: translate(-100px, -50px);
+      }
+      75% {
+        transform: translate(50px, -100px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    /* 浮动文本的样式 */
+    .floating-text {
+      position: fixed;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* 为文本添加阴影 */
+      animation: floatText 5s ease-in-out infinite;
+      pointer-events: none; /* 禁止文本被点击 */
+    }
+  </style>
+</head>
+<body>
+
+  <script>
+    // 定义20个不同的文本
+    const texts = [
+      "翁星乐你最棒！", "翁星乐要天天开心喔！", "参见翁星乐大王！",
+      "我翁星乐就是牛逼！", "喜羊羊美羊羊懒羊羊沸羊羊！", "我是乐乐小淘气面对世界很好奇！",
+      "祝你永远都快乐！", "我翁星乐有无尽的可能性！", "我翁星乐的未来无可限量！",
+      "乐乐乐乐你最强！", "你的坚持成就了今天的翁星乐！", "世界因为翁星乐变得更好！",
+      "滴滴答滴滴答阳光彩虹小白马！", "我翁星乐值得拥有一切美好！", "come on！逆战逆战来也！",
+      "相信翁星乐，翁星乐最棒！", "什么我是翁星乐！", "是的是的我翁星乐就是无所不能！",
+      "欧蕾欧蕾欧蕾欧蕾！", "乐乐乐乐你最棒！", "你已经做得很好了！"
+    ];
+
+    // 随机生成一个颜色
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // 随机生成多个浮动文本
+    function createFloatingText() {
+      for (let i = 0; i < texts.length; i++) { // 创建 20 个浮动文本
+        const textElement = document.createElement('div');
+        textElement.classList.add('floating-text');
+        
+        // 从文本数组中选择一个文本
+        const randomText = texts[i];
+
+        textElement.textContent = randomText;
+
+        // 设置随机的初始位置和动画持续时间
+        const randomX = Math.random() * 100; // 随机X轴偏移量
+        const randomY = Math.random() * 100; // 随机Y轴偏移量
+        const randomDelay = Math.random() * 5; // 随机动画延迟
+        const randomDuration = 5 + Math.random() * 5; // 随机动画时间
+
+        // 设置位置和动画属性
+        textElement.style.left = `${randomX}%`;
+        textElement.style.top = `${randomY}%`;
+        textElement.style.animationDuration = `${randomDuration}s`;
+        textElement.style.animationDelay = `-${randomDelay}s`;
+
+        // 设置随机颜色
+        textElement.style.color = getRandomColor();
+
+        // 添加到页面
+        document.body.appendChild(textElement);
+      }
+    }
+
+    // 创建浮动文本
+    createFloatingText();
+  </script>
+
+</body>
+</html>
