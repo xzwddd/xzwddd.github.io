@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>翁星乐大王的魔法世界</title>
+  <style>
+    /* 设置页面的背景图 */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: left;  /* 让文本左对齐 */
+      padding: 50px;  /* 给整个body增加一些内边距 */
+      margin: 0;  /* 去掉浏览器默认的边距 */
+      background-image: url('R-C.jpg'); /* 假设背景图和 HTML 文件在同一目录 */
+      background-size: cover; /* 背景图覆盖整个页面 */
+      background-position: center; /* 背景图居中 */
+      background-repeat: no-repeat; /* 背景图不重复 */
+      color: white; /* 设置文字颜色为白色 */
+      height: 100vh; /* 让body的高度占满整个视口 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    h1 {
+      margin: 0 0 20px 0;  /* 为标题设置下边距 */
+      padding-left: 20px;  /* 左侧内边距，使标题向左移动 */
+    }
+    
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      padding-left: 20px;  /* 左侧内边距，使提示文本向左移动 */
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      margin-left: 20px;  /* 左侧内边距，使输入框向左移动 */
+      max-width: 230px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      margin-left: 50px; 
+      max-width: 130px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>欢迎光临翁星乐大王的魔法世界</h1>
+
+  <!-- 提示信息 -->
+  <p>请输入开机密码：夏紫微我好崇拜你啊</p>
+  
+  <input type="text" id="inputText" placeholder="请输入文字...">
+  <br><br>
+  <button onclick="checkInput()">启动</button>
+
+  <script>
+    function checkInput() {
+      var inputText = document.getElementById('inputText').value;
+      if (inputText === "夏紫微我好崇拜你啊") {
+        window.location.href = "page2.html";
+      } else {
+        alert("请输入正确的文字！");
+      }
+    }
+  </script>
+
+</body>
+</html>
